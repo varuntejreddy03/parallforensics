@@ -75,34 +75,48 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-slate-800 border-b border-slate-700 flex flex-col items-start px-6 py-6 gap-2 shadow-xl">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-base text-white hover:text-blue-400 font-medium w-full py-3 border-b border-slate-700"
+        <div className="lg:hidden absolute top-full left-0 w-full bg-slate-800 border-b border-slate-700 shadow-xl max-h-[80vh] overflow-y-auto">
+          <div className="flex flex-col px-4 py-4 gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-base text-white hover:text-blue-400 hover:bg-slate-700 font-medium w-full py-3 px-3 rounded-md transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <div className="w-full">
+              <button 
+                onClick={() => setServicesOpen(!servicesOpen)} 
+                className="text-base text-white hover:bg-slate-700 font-medium w-full py-3 px-3 rounded-md flex items-center justify-between transition-colors"
+              >
+                Services <ChevronDown size={18} className={cn("transition-transform", servicesOpen && "rotate-180")} />
+              </button>
+              {servicesOpen && (
+                <div className="pl-3 mt-1 space-y-1">
+                  {servicesDropdown.map((item) => (
+                    <Link 
+                      key={item.name} 
+                      href={item.href} 
+                      className="block text-sm text-slate-300 hover:text-blue-400 hover:bg-slate-700 py-2 px-3 rounded-md transition-colors" 
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            <Link 
+              href="/contact" 
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-base font-medium transition-colors w-full text-center mt-3" 
               onClick={() => setIsOpen(false)}
             >
-              {link.name}
+              Contact Us
             </Link>
-          ))}
-          <div className="w-full border-b border-slate-700">
-            <button onClick={() => setServicesOpen(!servicesOpen)} className="text-base text-white font-medium w-full py-3 flex items-center justify-between">
-              Services <ChevronDown size={18} className={cn("transition-transform", servicesOpen && "rotate-180")} />
-            </button>
-            {servicesOpen && (
-              <div className="pl-4 pb-3 space-y-2">
-                {servicesDropdown.map((item) => (
-                  <Link key={item.name} href={item.href} className="block text-sm text-slate-300 hover:text-blue-400 py-2" onClick={() => setIsOpen(false)}>
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            )}
           </div>
-          <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-base font-medium transition-colors w-full text-center mt-2" onClick={() => setIsOpen(false)}>
-            Contact Us
-          </Link>
         </div>
       )}
     </header>

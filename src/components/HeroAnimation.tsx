@@ -223,26 +223,26 @@ export function HeroAnimation() {
   return (
     <div className="relative w-full min-h-[600px] overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-[600px] px-6 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 animate-fade-in drop-shadow-lg">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-[600px] px-4 sm:px-6 text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 animate-fade-in drop-shadow-lg leading-tight">
           Empowering Investigations.
         </h1>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#1e90ff] mb-6 animate-fade-in-delay-1 drop-shadow-lg">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1e90ff] mb-4 sm:mb-6 animate-fade-in-delay-1 drop-shadow-lg leading-tight">
           Securing the Digital Frontier.
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mb-8 animate-fade-in-delay-2">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 max-w-3xl mb-6 sm:mb-8 animate-fade-in-delay-2 px-4">
           Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-delay-3">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in-delay-3 w-full sm:w-auto px-4">
           <Link
             href="/services/digital-forensic-solutions"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 text-center"
           >
             Explore Solutions
           </Link>
           <Link
             href="/contact"
-            className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105"
+            className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105 text-center"
           >
             Contact Us
           </Link>

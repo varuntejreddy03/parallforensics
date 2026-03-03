@@ -14,7 +14,7 @@ export default function Home() {
       <HeroAnimation />
 
       <SectionWrapper id="what-we-do" className="bg-white relative z-20 -mt-8 pt-16 sm:pt-24 rounded-t-3xl border-t border-slate-100">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {[
             {
               icon: <Shield className="text-blue-600" size={32} />,
@@ -38,12 +38,12 @@ export default function Home() {
               button: "Products"
             }
           ].map((item, idx) => (
-            <div key={idx} className="bg-white border border-slate-100 p-6 sm:p-8 rounded-2xl hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group shadow-sm">
+            <div key={idx} className="bg-white border border-slate-100 p-5 sm:p-6 md:p-8 rounded-2xl hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group shadow-sm">
               <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
                 {item.icon}
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">{item.title}</h3>
-              <p className="text-slate-600 leading-relaxed text-[1rem] mb-6">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-3 sm:mb-4 group-hover:text-blue-600 transition-colors leading-tight">{item.title}</h3>
+              <p className="text-slate-600 leading-relaxed text-sm sm:text-base mb-4 sm:mb-6">
                 {item.desc}
               </p>
               <Link href={item.link} className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md text-sm font-medium transition-colors">
