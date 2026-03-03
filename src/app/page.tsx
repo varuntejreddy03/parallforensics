@@ -95,8 +95,11 @@ export default function Home() {
       <section className="py-16 sm:py-20 px-4 sm:px-6 relative bg-white border-t border-slate-100">
         <div className="container mx-auto text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-8">
-            Ready to take action?
+            Ready to Transform Your Investigation Capabilities?
           </h2>
+          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            Connect with our experts to discuss custom forensic solutions tailored to your needs.
+          </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/services/digital-forensic-solutions" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-base font-semibold transition-colors shadow-lg">
               Explore Solutions
@@ -105,20 +108,6 @@ export default function Home() {
               Contact Us
             </Link>
           </div>
-        </div>
-      </section>
-
-      <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 relative bg-slate-50 border-t border-slate-200">
-        <div className="container mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-            Ready to Transform Your Investigation Capabilities?
-          </h2>
-          <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
-            Connect with our experts to discuss custom forensic solutions tailored to your needs.
-          </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-colors shadow-lg">
-            Contact Us <ArrowRight size={20} />
-          </Link>
         </div>
       </section>
 

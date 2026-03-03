@@ -249,35 +249,18 @@ export function HeroAnimation() {
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
             {/* Left: Text Content - Takes 3 columns */}
-            <div className="lg:col-span-3 text-left space-y-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 animate-fade-in drop-shadow-2xl leading-tight">
-                Empowering Investigations.
+            <div className="lg:col-span-3 text-left space-y-6 pl-16 lg:pl-20">
+              <h1 className="text-[42px] sm:text-5xl md:text-6xl lg:text-[42px] font-bold text-white mb-4 animate-fade-in drop-shadow-2xl leading-tight">
+                Empowering Investigations. Securing the Digital Frontier.
               </h1>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#1e90ff] mb-6 animate-fade-in-delay-1 drop-shadow-2xl leading-tight">
-                Securing the Digital Frontier.
-              </h2>
               <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 animate-fade-in-delay-2 leading-relaxed max-w-2xl">
                 Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-delay-3">
-                <Link
-                  href="/services/digital-forensic-solutions"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50 text-center"
-                >
-                  Explore Solutions
-                </Link>
-                <Link
-                  href="/contact"
-                  className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105 text-center"
-                >
-                  Contact Us
-                </Link>
-              </div>
             </div>
 
             {/* Right: Carousel - Takes 2 columns */}
             <div 
-              className="lg:col-span-2 relative"
+              className="lg:col-span-2 relative pt-8 lg:pt-16"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
@@ -291,8 +274,8 @@ export function HeroAnimation() {
                   >
                     <Image src={item.src} alt={item.caption} fill className="object-cover" priority={idx === 0} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6 bg-blue-600 backdrop-blur-md px-5 py-3 rounded-full shadow-lg">
-                      <p className="text-white text-sm sm:text-base font-bold">{item.caption}</p>
+                    <div className="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
+                      <p className="text-white text-xs font-normal">{item.caption}</p>
                     </div>
                   </div>
                 ))}
