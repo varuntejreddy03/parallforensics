@@ -22,7 +22,7 @@ export function SectionWrapper({
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={cn("py-20", className)}
     >
-      <div className="max-w-[1100px] mx-auto px-6">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6">
         {children}
       </div>
     </motion.section>

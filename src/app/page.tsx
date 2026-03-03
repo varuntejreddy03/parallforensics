@@ -41,14 +41,14 @@ export default function Home() {
           <div className="absolute inset-0 bg-white opacity-[0.03] bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         </div>
 
-        <div className="container relative z-10 mx-auto px-6 md:px-12">
+        <div className="container relative z-10 mx-auto px-4 sm:px-6 md:px-12">
           <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-[1.1] tracking-tight mb-6">
               Empowering Investigations.<br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">Securing the Digital Frontier.</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
               Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
             </p>
 
@@ -86,8 +86,8 @@ export default function Home() {
         </div>
       </section>
 
-      <SectionWrapper id="what-we-do" className="bg-white relative z-20 -mt-8 pt-24 rounded-t-3xl border-t border-slate-100">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <SectionWrapper id="what-we-do" className="bg-white relative z-20 -mt-8 pt-16 sm:pt-24 rounded-t-3xl border-t border-slate-100">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {[
             {
               icon: <Shield className="text-blue-600" size={32} />,
@@ -111,11 +111,11 @@ export default function Home() {
               button: "Products"
             }
           ].map((item, idx) => (
-            <div key={idx} className="bg-white border border-slate-100 p-8 rounded-2xl hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group shadow-sm">
+            <div key={idx} className="bg-white border border-slate-100 p-6 sm:p-8 rounded-2xl hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group shadow-sm">
               <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
                 {item.icon}
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">{item.title}</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">{item.title}</h3>
               <p className="text-slate-600 leading-relaxed text-[1rem] mb-6">
                 {item.desc}
               </p>
@@ -127,8 +127,8 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper id="why-parall" className="bg-slate-50 py-24 border-t border-slate-100">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+      <SectionWrapper id="why-parall" className="bg-slate-50 py-16 sm:py-24 border-t border-slate-100">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           <div className="bg-slate-900 rounded-3xl p-10 md:p-14 text-white relative overflow-hidden shadow-2xl order-2 lg:order-1">
             <div className="absolute top-[-20%] right-[-20%] w-64 h-64 bg-blue-600/30 blur-[80px] rounded-full"></div>
             <h3 className="text-3xl font-bold mb-8">Parall Forensics</h3>
@@ -150,7 +150,7 @@ export default function Home() {
 
           <div className="order-1 lg:order-2">
             <div className="inline-block text-blue-600 font-bold tracking-widest uppercase text-xs mb-4">Why Choose Us</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 sm:mb-8 leading-tight">
               Bridging the Gap Between Traditional Investigation and Global Technology Standards
             </h2>
             <div className="text-xl text-slate-600 leading-relaxed border-l-4 border-blue-600 pl-6 mb-8 italic">
@@ -163,15 +163,15 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      <section id="contact" className="py-24 px-6 relative bg-slate-50 border-t border-slate-200">
+      <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 relative bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-6">
             Ready to Transform Your Investigation Capabilities?
           </h2>
           <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
             Connect with our experts to discuss custom forensic solutions tailored to your needs.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors shadow-lg">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-colors shadow-lg">
             Contact Us <ArrowRight size={20} />
           </Link>
         </div>

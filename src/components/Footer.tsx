@@ -6,8 +6,8 @@ export function Footer() {
   return (
     <footer className="bg-slate-800 border-t border-slate-700 pt-20 pb-10 text-slate-300 overflow-hidden relative">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none opacity-50" />
-      <div className="max-w-[1100px] mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-16">
           <div className="space-y-6 lg:col-span-1">
             <Link href="/" className="inline-block group" aria-label="Home">
               <div className="flex items-center shrink-0 relative w-[220px] h-[50px] mb-4">

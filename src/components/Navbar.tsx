@@ -23,11 +23,11 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-slate-800 shadow-md py-4">
-      <div className="max-w-[1100px] mx-auto px-6 flex justify-between items-center">
+    <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-slate-800 shadow-md py-3 sm:py-4">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group" aria-label="Home">
-          <div className="flex items-center shrink-0 relative w-[280px] h-[65px]">
+          <div className="flex items-center shrink-0 relative w-[200px] sm:w-[280px] h-[50px] sm:h-[65px]">
             <Image src="/PARALL_FORENSICS_LOGO-BG-REMOVED (2).png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" style={{borderRadius: '12px'}} priority />
           </div>
         </Link>
