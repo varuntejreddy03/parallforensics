@@ -2,10 +2,12 @@
 
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { HeroAnimation } from "@/components/HeroAnimation";
+import { ImageCarousel } from "@/components/ImageCarousel";
 import {
-  ArrowRight, Shield, GraduationCap, Building, Globe
+  ArrowRight, Shield, Globe
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -17,21 +19,21 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {[
             {
-              icon: <Shield className="text-blue-600" size={32} />,
+              icon: "/ChatGPT Image Mar 3, 2026, 04_34_44 PM.png",
               title: "Digital Forensic Infrastructure Solutions",
               desc: "End-to-end design, deployment, and integration of advanced digital forensic laboratories and investigation ecosystems.",
               link: "/services/digital-forensic-solutions",
               button: "Services"
             },
             {
-              icon: <GraduationCap className="text-blue-600" size={32} />,
+              icon: "/ChatGPT Image Mar 3, 2026, 04_27_36 PM.png",
               title: "Digital Forensic Training Programs",
               desc: "Specialized, hands-on training programs empowering investigators, analysts, and law enforcement with practical forensic expertise.",
               link: "/services/training-certification",
               button: "Training"
             },
             {
-              icon: <Building className="text-blue-600" size={32} />,
+              icon: "/ChatGPT Image Mar 3, 2026, 04_27_35 PM.png",
               title: "Legal and Technical Consultation",
               desc: "Expert advisory services bridging legal compliance and technical forensics to strengthen investigations and courtroom outcomes.",
               link: "/products",
@@ -39,8 +41,8 @@ export default function Home() {
             }
           ].map((item, idx) => (
             <div key={idx} className="bg-white border border-slate-100 p-5 sm:p-6 md:p-8 rounded-2xl hover:border-blue-600 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group shadow-sm">
-              <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
-                {item.icon}
+              <div className="w-20 h-20 mx-auto mb-6 relative">
+                <Image src={item.icon} alt={item.title} fill className="object-contain" />
               </div>
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-3 sm:mb-4 group-hover:text-blue-600 transition-colors leading-tight">{item.title}</h3>
               <p className="text-slate-600 leading-relaxed text-sm sm:text-base mb-4 sm:mb-6">

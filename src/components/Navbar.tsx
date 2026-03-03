@@ -27,8 +27,8 @@ export function Navbar() {
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group" aria-label="Home">
-          <div className="flex items-center shrink-0 relative w-[180px] sm:w-[240px] h-[40px] sm:h-[50px] bg-white rounded-lg overflow-hidden px-3 py-2">
-            <Image src="/PARALL_FORENSICS_LOGO-BG-REMOVED (2).png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" priority />
+          <div className="flex items-center shrink-0 relative w-[180px] sm:w-[240px] h-[40px] sm:h-[50px]">
+            <Image src="/parall-logo-white-text.png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" priority />
           </div>
         </Link>
 
