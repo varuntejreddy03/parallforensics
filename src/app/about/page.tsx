@@ -50,7 +50,7 @@ export default function About() {
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
               Specialized Digital Forensics & Cyber Capability
             </h2>
-            <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+            <div className="space-y-6 text-slate-600 text-lg leading-relaxed text-justify">
               <p>
                 <strong>Parall Forensics</strong> is a specialized digital forensics and cyber capability company
                 headquartered in Hyderabad, India, and a proud member of the ParadigmIT Group.
