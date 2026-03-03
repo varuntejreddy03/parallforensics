@@ -77,12 +77,21 @@ export function HeroAnimation() {
         ctx.stroke();
       }
 
-      // Particles
+      // Particles with glow
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        // Glow effect
+        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 8);
+        gradient.addColorStop(0, "rgba(30, 144, 255, 0.8)");
+        gradient.addColorStop(1, "rgba(30, 144, 255, 0)");
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
+        ctx.fill();
 
         ctx.fillStyle = "#1e90ff";
         ctx.beginPath();
@@ -132,17 +141,28 @@ export function HeroAnimation() {
         return false;
       });
 
-      // Radar sweep
+      // Radar sweep with glow trail
       if (timestamp - lastRadarTime > 5000) {
         radarAngle = 0;
         lastRadarTime = timestamp;
       }
-      radarAngle += 0.02;
-      const radarX = canvas.width * 0.7;
-      const radarY = canvas.height * 0.5;
-      const radarRadius = 150;
-      ctx.strokeStyle = "rgba(0, 255, 0, 0.4)";
-      ctx.lineWidth = 2;
+      radarAngle += 0.015;
+      const radarX = canvas.width * 0.75;
+      const radarY = canvas.height * 0.4;
+      const radarRadius = 180;
+      
+      // Glow trail
+      const gradient = ctx.createLinearGradient(
+        radarX,
+        radarY,
+        radarX + Math.cos(radarAngle) * radarRadius,
+        radarY + Math.sin(radarAngle) * radarRadius
+      );
+      gradient.addColorStop(0, "rgba(0, 255, 0, 0)");
+      gradient.addColorStop(0.5, "rgba(0, 255, 0, 0.4)");
+      gradient.addColorStop(1, "rgba(0, 255, 0, 0.8)");
+      ctx.strokeStyle = gradient;
+      ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.moveTo(radarX, radarY);
       ctx.lineTo(
@@ -151,7 +171,14 @@ export function HeroAnimation() {
       );
       ctx.stroke();
 
-      // Cursors
+      // Radar circle
+      ctx.strokeStyle = "rgba(0, 255, 0, 0.15)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(radarX, radarY, radarRadius, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Cursors with pulse effect
       if (timestamp - lastCursorTime > 2000) {
         cursors.push({
           x: Math.random() * canvas.width,
@@ -165,10 +192,12 @@ export function HeroAnimation() {
       cursors = cursors.filter((c) => {
         c.life += 16;
         c.opacity = Math.max(0, 1 - c.life / 2000);
+        const pulse = Math.sin(c.life / 100) * 0.3 + 0.7;
         if (c.opacity > 0) {
-          ctx.strokeStyle = `rgba(30, 144, 255, ${c.opacity})`;
+          ctx.strokeStyle = `rgba(30, 144, 255, ${c.opacity * pulse})`;
           ctx.lineWidth = 2;
-          ctx.strokeRect(c.x - 5, c.y - 5, 10, 10);
+          ctx.strokeRect(c.x - 6, c.y - 6, 12, 12);
+          ctx.strokeRect(c.x - 4, c.y - 4, 8, 8);
           return true;
         }
         return false;
@@ -195,25 +224,25 @@ export function HeroAnimation() {
     <div className="relative w-full min-h-[600px] overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       <div className="relative z-10 flex flex-col items-center justify-center min-h-[600px] px-6 text-center">
-        <h1 className="text-5xl font-bold text-white mb-4 animate-fade-in">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 animate-fade-in drop-shadow-lg">
           Empowering Investigations.
         </h1>
-        <h2 className="text-5xl font-bold text-[#1e90ff] mb-6 animate-fade-in-delay-1">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#1e90ff] mb-6 animate-fade-in-delay-1 drop-shadow-lg">
           Securing the Digital Frontier.
         </h2>
-        <p className="text-lg text-slate-400 max-w-3xl mb-8 animate-fade-in-delay-2">
+        <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mb-8 animate-fade-in-delay-2">
           Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
         </p>
-        <div className="flex gap-4 animate-fade-in-delay-3">
+        <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-delay-3">
           <Link
             href="/services/digital-forensic-solutions"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
           >
             Explore Solutions
           </Link>
           <Link
             href="/contact"
-            className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-3 rounded-lg font-semibold transition-colors"
+            className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105"
           >
             Contact Us
           </Link>
