@@ -3,6 +3,7 @@ import {
   ArrowRight, Shield, GraduationCap, Building, Globe
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const jsonLd = {
@@ -75,8 +76,8 @@ export default function Home() {
                   "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&h=250&fit=crop",
                   "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=250&fit=crop"
                 ].map((src, idx) => (
-                  <div key={idx} className="flex-shrink-0 w-64 h-40 bg-slate-200 rounded-lg overflow-hidden">
-                    <img src={src} alt="Digital Forensics" className="w-full h-full object-cover" />
+                  <div key={idx} className="flex-shrink-0 w-64 h-40 bg-slate-200 rounded-lg overflow-hidden relative">
+                    <Image src={src} alt="Digital Forensics" fill className="object-cover" />
                   </div>
                 ))}
               </div>
