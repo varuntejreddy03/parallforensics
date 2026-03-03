@@ -1,7 +1,7 @@
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { CTAButton } from "@/components/CTAButton";
 import {
-  ChevronRight, GraduationCap, ShieldAlert,
+  ChevronRight, GraduationCap,
   MapPin, Globe, Cpu, LayoutGrid, CheckCircle2
 } from "lucide-react";
 import Link from "next/link";
@@ -83,40 +83,6 @@ export default function About() {
                 <p className="text-sm text-slate-600">Delivering mission-critical solutions since inception.</p>
               </div>
             </div>
-          </div>
-        </div>
-      </SectionWrapper>
-
-      {/* SECTION 3 — OUR FOCUS AREAS */}
-      <SectionWrapper id="focus-areas" className="bg-white py-24">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Focus Areas</h2>
-          <p className="text-lg text-slate-600">The three pillars that define our operational expertise and value delivery.</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-8 rounded-2xl bg-surface border border-slate-100 hover:border-accent/40 shadow-sm hover:shadow-md transition-all group">
-            <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-accent mb-6 shadow-sm group-hover:scale-110 transition-transform">
-              <Cpu size={28} />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Technology & Investigation</h3>
-            <p className="text-slate-600">Integrating best-in-class extraction & correlation tools to uncover hidden digital footprints rapidly.</p>
-          </div>
-
-          <div className="p-8 rounded-2xl bg-surface border border-slate-100 hover:border-secondary/40 shadow-sm hover:shadow-md transition-all group">
-            <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-secondary mb-6 shadow-sm group-hover:scale-110 transition-transform">
-              <ShieldAlert size={28} />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">National Security & Cyber Threats</h3>
-            <p className="text-slate-600">Providing the critical infrastructure needed to proactively identify, track, and neutralize state-level cyber threats.</p>
-          </div>
-
-          <div className="p-8 rounded-2xl bg-surface border border-slate-100 hover:border-accent/40 shadow-sm hover:shadow-md transition-all group">
-            <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center text-accent mb-6 shadow-sm group-hover:scale-110 transition-transform">
-              <GraduationCap size={28} />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">Capacity Building & Training</h3>
-            <p className="text-slate-600">Upskilling investigators through rigorous, reality-based simulation and cutting-edge forensic methodologies.</p>
           </div>
         </div>
       </SectionWrapper>

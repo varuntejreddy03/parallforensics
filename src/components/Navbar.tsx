@@ -4,65 +4,63 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { CTAButton } from "./CTAButton";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export function Navbar() {
-  const [scroll, setScroll] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScroll(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   const navLinks = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Services", href: "/services" },
     { name: "Products", href: "/products" },
     { name: "Partners", href: "/partners" },
-    { name: "Contact Us", href: "/contact" },
+  ];
+
+  const servicesDropdown = [
+    { name: "Digital Forensic Solutions", href: "/services/digital-forensic-solutions" },
+    { name: "Training and Certification", href: "/services/training-certification" },
   ];
 
   return (
-    <header className={cn(
-      "fixed top-0 w-full z-50 transition-all duration-300",
-      scroll ? "bg-white/80 backdrop-blur-md shadow-sm py-4 border-b border-black/5" : "bg-transparent py-6"
-    )}>
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+    <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-slate-800 shadow-md py-4">
+      <div className="max-w-[1100px] mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group" aria-label="Home">
-          <div className="flex items-center shrink-0 relative w-[220px] h-[50px]">
-            <Image src="/logo.jpeg" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" priority />
+          <div className="flex items-center shrink-0 relative w-[280px] h-[65px]">
+            <Image src="/PARALL_FORENSICS_LOGO-BG-REMOVED (2).png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" style={{borderRadius: '12px'}} priority />
           </div>
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className={cn(
-              "text-sm transition-colors font-medium",
-              "text-slate-700 hover:text-blue-600"
-            )}>
+            <Link key={link.name} href={link.href} className="text-sm transition-colors font-medium text-white hover:text-blue-400">
               {link.name}
             </Link>
           ))}
-          <CTAButton>
-            <Link href="/contact" className="text-white">Get in Touch</Link>
-          </CTAButton>
+          <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
+            <button className="text-sm transition-colors font-medium text-white hover:text-blue-400 flex items-center gap-1">
+              Services <ChevronDown size={16} />
+            </button>
+            {servicesOpen && (
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-50">
+                {servicesDropdown.map((item) => (
+                  <Link key={item.name} href={item.href} className="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600">
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+          <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors">
+            Contact Us
+          </Link>
         </nav>
 
         {/* Mobile Toggle */}
         <button
-          className={cn(
-            "lg:hidden p-2 rounded-md transition-colors",
-            scroll ? "text-slate-900 hover:bg-black/5" : "text-slate-800 hover:bg-black/5"
-          )}
+          className="lg:hidden p-2 rounded-md transition-colors text-white hover:bg-white/10"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
@@ -74,22 +72,34 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-200 flex flex-col items-start px-6 py-4 gap-4 shadow-xl">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-slate-800 border-b border-slate-700 flex flex-col items-start px-6 py-6 gap-2 shadow-xl">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-lg text-slate-800 hover:text-blue-600 font-medium w-full py-2"
+              className="text-base text-white hover:text-blue-400 font-medium w-full py-3 border-b border-slate-700"
               onClick={() => setIsOpen(false)}
             >
               {link.name}
             </Link>
           ))}
-          <div className="pt-4 w-full">
-            <CTAButton className="w-full">
-              <Link href="/contact" onClick={() => setIsOpen(false)}>Get in Touch</Link>
-            </CTAButton>
+          <div className="w-full border-b border-slate-700">
+            <button onClick={() => setServicesOpen(!servicesOpen)} className="text-base text-white font-medium w-full py-3 flex items-center justify-between">
+              Services <ChevronDown size={18} className={cn("transition-transform", servicesOpen && "rotate-180")} />
+            </button>
+            {servicesOpen && (
+              <div className="pl-4 pb-3 space-y-2">
+                {servicesDropdown.map((item) => (
+                  <Link key={item.name} href={item.href} className="block text-sm text-slate-300 hover:text-blue-400 py-2" onClick={() => setIsOpen(false)}>
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
+          <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-base font-medium transition-colors w-full text-center mt-2" onClick={() => setIsOpen(false)}>
+            Contact Us
+          </Link>
         </div>
       )}
     </header>
