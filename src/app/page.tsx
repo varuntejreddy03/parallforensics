@@ -2,7 +2,6 @@
 
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { HeroAnimation } from "@/components/HeroAnimation";
-import { ImageCarousel } from "@/components/ImageCarousel";
 import {
   ArrowRight, Shield, Globe
 } from "lucide-react";
