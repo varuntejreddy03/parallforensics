@@ -10,8 +10,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-16">
           <div className="space-y-6 lg:col-span-1">
             <Link href="/" className="inline-block group" aria-label="Home">
-              <div className="flex items-center shrink-0 relative w-[220px] h-[50px] mb-4">
-                <Image src="/PARALL_FORENSICS_LOGO-BG-REMOVED (2).png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" style={{borderRadius: '8px'}} />
+              <div className="flex items-center shrink-0 relative w-[200px] h-[45px] mb-4 bg-white rounded-lg overflow-hidden px-3 py-2">
+                <Image src="/PARALL_FORENSICS_LOGO-BG-REMOVED (2).png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" />
               </div>
             </Link>
             <p className="text-sm">

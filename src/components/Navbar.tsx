@@ -23,12 +23,12 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-slate-800 shadow-md py-3 sm:py-4">
+    <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-slate-800 shadow-md py-2 sm:py-3">
       <div className="max-w-[1100px] mx-auto px-4 sm:px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group" aria-label="Home">
-          <div className="flex items-center shrink-0 relative w-[200px] sm:w-[280px] h-[50px] sm:h-[65px]">
-            <Image src="/PARALL_FORENSICS_LOGO-BG-REMOVED (2).png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" style={{borderRadius: '12px'}} priority />
+          <div className="flex items-center shrink-0 relative w-[180px] sm:w-[240px] h-[40px] sm:h-[50px] bg-white rounded-lg overflow-hidden px-3 py-2">
+            <Image src="/PARALL_FORENSICS_LOGO-BG-REMOVED (2).png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" priority />
           </div>
         </Link>
 
@@ -39,19 +39,22 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
+          <div className="relative group" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
             <button className="text-sm transition-colors font-medium text-white hover:text-blue-400 flex items-center gap-1">
               Services <ChevronDown size={16} />
             </button>
-            {servicesOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 z-50">
+            <div className={cn(
+              "absolute top-full left-0 pt-2 transition-opacity duration-200",
+              servicesOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+            )}>
+              <div className="w-64 bg-white rounded-md shadow-lg py-2 z-50">
                 {servicesDropdown.map((item) => (
                   <Link key={item.name} href={item.href} className="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600">
                     {item.name}
                   </Link>
                 ))}
               </div>
-            )}
+            </div>
           </div>
           <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors">
             Contact Us
