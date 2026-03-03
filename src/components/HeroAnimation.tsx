@@ -245,53 +245,54 @@ export function HeroAnimation() {
     <div className="relative w-full min-h-screen overflow-hidden pt-20">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       
-      <div className="relative z-10 min-h-screen flex items-center">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left: Text Content */}
-            <div className="text-left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 animate-fade-in drop-shadow-lg leading-tight">
+      <div className="relative z-10 min-h-screen flex items-center py-12">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+            {/* Left: Text Content - Takes 3 columns */}
+            <div className="lg:col-span-3 text-left space-y-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 animate-fade-in drop-shadow-2xl leading-tight">
                 Empowering Investigations.
               </h1>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1e90ff] mb-4 sm:mb-6 animate-fade-in-delay-1 drop-shadow-lg leading-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[#1e90ff] mb-6 animate-fade-in-delay-1 drop-shadow-2xl leading-tight">
                 Securing the Digital Frontier.
               </h2>
-              <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-6 sm:mb-8 animate-fade-in-delay-2">
+              <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 animate-fade-in-delay-2 leading-relaxed max-w-2xl">
                 Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-in-delay-3">
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-delay-3">
                 <Link
                   href="/services/digital-forensic-solutions"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50 text-center"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/50 text-center"
                 >
                   Explore Solutions
                 </Link>
                 <Link
                   href="/contact"
-                  className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-6 sm:px-8 py-3 rounded-lg font-semibold transition-all hover:scale-105 text-center"
+                  className="border-2 border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105 text-center"
                 >
                   Contact Us
                 </Link>
               </div>
             </div>
 
-            {/* Right: Carousel */}
+            {/* Right: Carousel - Takes 2 columns */}
             <div 
-              className="relative"
+              className="lg:col-span-2 relative"
               onMouseEnter={() => setIsPaused(true)}
               onMouseLeave={() => setIsPaused(false)}
             >
-              <div className="relative w-full h-[400px] sm:h-[500px] rounded-xl overflow-hidden border-2 border-blue-500 shadow-2xl shadow-blue-500/30">
+              <div className="relative w-full h-[450px] sm:h-[550px] rounded-2xl overflow-hidden border-2 border-blue-500/50 shadow-2xl shadow-blue-500/40 backdrop-blur-sm">
                 {carouselImages.map((item, idx) => (
                   <div
                     key={idx}
-                    className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
                       idx === currentSlide ? "opacity-100" : "opacity-0"
                     }`}
                   >
-                    <Image src={item.src} alt={item.caption} fill className="object-cover" />
-                    <div className="absolute bottom-4 left-4 bg-blue-600/90 backdrop-blur-sm px-4 py-2 rounded-full">
-                      <p className="text-white text-sm font-semibold">{item.caption}</p>
+                    <Image src={item.src} alt={item.caption} fill className="object-cover" priority={idx === 0} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-6 left-6 bg-blue-600 backdrop-blur-md px-5 py-3 rounded-full shadow-lg">
+                      <p className="text-white text-sm sm:text-base font-bold">{item.caption}</p>
                     </div>
                   </div>
                 ))}
@@ -300,27 +301,27 @@ export function HeroAnimation() {
               {/* Navigation Arrows */}
               <button
                 onClick={() => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-blue-600 text-white p-3 rounded-full transition-all hover:scale-110 backdrop-blur-sm"
                 aria-label="Previous slide"
               >
-                <ChevronLeft size={24} />
+                <ChevronLeft size={28} />
               </button>
               <button
                 onClick={() => setCurrentSlide((prev) => (prev + 1) % carouselImages.length)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-blue-600 text-white p-3 rounded-full transition-all hover:scale-110 backdrop-blur-sm"
                 aria-label="Next slide"
               >
-                <ChevronRight size={24} />
+                <ChevronRight size={28} />
               </button>
               
               {/* Dot Indicators */}
-              <div className="flex justify-center gap-2 mt-4">
+              <div className="flex justify-center gap-2 mt-6">
                 {carouselImages.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentSlide(idx)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      idx === currentSlide ? "bg-blue-500 w-8" : "bg-white/50"
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      idx === currentSlide ? "bg-blue-500 w-10" : "bg-white/40 w-2 hover:bg-white/60"
                     }`}
                     aria-label={`Go to slide ${idx + 1}`}
                   />
