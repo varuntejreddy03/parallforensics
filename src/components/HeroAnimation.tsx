@@ -18,14 +18,10 @@ export function HeroAnimation() {
   const [isPaused, setIsPaused] = useState(false);
 
   const carouselImages = [
-    { src: "/ChatGPT Image Mar 3, 2026, 04_27_41 PM.png", caption: "Digital Forensics Command Center" },
-    { src: "/ChatGPT Image Mar 3, 2026, 04_27_40 PM.png", caption: "Mobile Device Forensics" },
-    { src: "/ChatGPT Image Mar 3, 2026, 04_27_34 PM.png", caption: "Hard Drive Investigation" },
-    { src: "/ChatGPT Image Mar 3, 2026, 04_27_32 PM.png", caption: "Chip & Circuit Analysis" },
-    { src: "/ChatGPT Image Mar 3, 2026, 04_35_27 PM.png", caption: "Field Investigation" },
     { src: "/Banner Pics/image_7155b228-f498-4829-957e-6ca3ada6f263.png", caption: "AI Driven Investigation & Security" },
-    { src: "/Banner Pics/Mahacyber Pics/MC3.JPG", caption: "Centre of Excellence" },
-    { src: "/Banner Pics/Mahacyber Pics/sample-banner.JPG", caption: "Maharashtra Cyber Project" }
+    { src: "/Banner Pics/Mahacyber Pics/WhatsApp Image 2026-03-13 at 1.53.51 PM (1).jpeg", caption: "State-of-the-Art Operations Centre" },
+    { src: "/Banner Pics/Mahacyber Pics/MC3.JPG", caption: "Centre of Excellence Training" },
+    { src: "/Banner Pics/Mahacyber Pics/result_0.jpeg", caption: "Security Operations Centre" },
   ];
 
   useEffect(() => {
