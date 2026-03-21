@@ -2,6 +2,8 @@
 
 import { SectionWrapper } from "@/components/SectionWrapper";
 import { HeroAnimation } from "@/components/HeroAnimation";
+import { MaharashtraCyberSection } from "@/components/MaharashtraCyberSection";
+import { ClientLogosMarquee } from "@/components/ClientLogosMarquee";
 import {
   ArrowRight, Shield, Globe
 } from "lucide-react";
@@ -55,6 +57,8 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
+      <MaharashtraCyberSection />
+
       <SectionWrapper id="why-parall" className="bg-slate-50 py-16 sm:py-24 border-t border-slate-100">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-24 items-center">
           <div className="bg-slate-900 rounded-3xl p-10 md:p-14 text-white relative overflow-hidden shadow-2xl order-2 lg:order-1">
@@ -90,6 +94,8 @@ export default function Home() {
           </div>
         </div>
       </SectionWrapper>
+
+      <ClientLogosMarquee />
 
       <section className="py-16 sm:py-20 px-4 sm:px-6 relative bg-white border-t border-slate-100">
         <div className="container mx-auto text-center">

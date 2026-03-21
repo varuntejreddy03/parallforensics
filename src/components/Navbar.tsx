@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,84 +23,181 @@ export function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-slate-800 shadow-md py-2 sm:py-3">
-      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 flex justify-between items-center">
+    <header style={{
+      background: "rgba(10, 18, 40, 0.97)",
+      backdropFilter: "blur(12px)",
+      borderBottom: "1px solid rgba(43, 127, 232, 0.15)",
+      height: "68px",
+      position: "fixed",
+      top: 0,
+      width: "100%",
+      zIndex: 50,
+      display: "flex",
+      alignItems: "center",
+    }}>
+      <div className="w-full max-w-[1200px] mx-auto flex justify-between items-center px-6 lg:px-12">
+
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group" aria-label="Home">
-          <div className="flex items-center shrink-0 relative w-[180px] sm:w-[240px] h-[40px] sm:h-[50px]">
-            <Image src="/parall-logo-white-text.png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" priority />
+        <Link href="/" aria-label="Home" className="flex items-center gap-2 group shrink-0">
+          <div className="relative shrink-0" style={{ height: "48px", width: "auto", minWidth: "160px" }}>
+            <Image
+              src="/parall-logo-white-text.png"
+              alt="Parall Forensics Logo"
+              fill
+              className="object-contain"
+              style={{ background: "transparent" }}
+              priority
+            />
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Main Navigation">
+        <nav className="hidden lg:flex items-center" style={{ gap: "36px" }} aria-label="Main Navigation">
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="text-sm transition-colors font-medium text-white hover:text-blue-400">
+            <Link
+              key={link.name}
+              href={link.href}
+              style={{
+                color: "#CBD5E8",
+                fontSize: "14px",
+                fontWeight: 500,
+                letterSpacing: "0.5px",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#FFFFFF")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#CBD5E8")}
+            >
               {link.name}
             </Link>
           ))}
-          <div className="relative group" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
-            <button className="text-sm transition-colors font-medium text-white hover:text-blue-400 flex items-center gap-1">
-              Services <ChevronDown size={16} />
+
+          {/* Services Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button
+              className="flex items-center gap-1"
+              style={{
+                color: "#CBD5E8",
+                fontSize: "14px",
+                fontWeight: 500,
+                letterSpacing: "0.5px",
+                transition: "color 0.2s",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#FFFFFF")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#CBD5E8")}
+            >
+              Services
+              <ChevronDown size={11} />
             </button>
             <div className={cn(
               "absolute top-full left-0 pt-2 transition-opacity duration-200",
               servicesOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
             )}>
-              <div className="w-64 bg-white rounded-md shadow-lg py-2 z-50">
+              <div className="w-64 rounded-md shadow-lg py-2 z-50" style={{
+                background: "rgba(10, 18, 40, 0.98)",
+                border: "1px solid rgba(43, 127, 232, 0.2)",
+              }}>
                 {servicesDropdown.map((item) => (
-                  <Link key={item.name} href={item.href} className="block px-4 py-3 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-600">
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="block px-4 py-3 text-sm transition-colors"
+                    style={{ color: "#CBD5E8", fontSize: "13px" }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.color = "#FFFFFF";
+                      e.currentTarget.style.background = "rgba(43, 127, 232, 0.1)";
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.color = "#CBD5E8";
+                      e.currentTarget.style.background = "transparent";
+                    }}
+                  >
                     {item.name}
                   </Link>
                 ))}
               </div>
             </div>
           </div>
-          <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors">
+
+          {/* Contact Us Button */}
+          <Link
+            href="/contact"
+            style={{
+              background: "transparent",
+              border: "1.5px solid #2B7FE8",
+              color: "#2B7FE8",
+              borderRadius: "6px",
+              padding: "10px 24px",
+              fontSize: "13px",
+              fontWeight: 600,
+              letterSpacing: "1px",
+              transition: "all 0.25s",
+              textDecoration: "none",
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = "#2B7FE8";
+              e.currentTarget.style.color = "#FFFFFF";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.color = "#2B7FE8";
+            }}
+          >
             Contact Us
           </Link>
         </nav>
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden p-2 rounded-md transition-colors text-white hover:bg-white/10"
+          className="lg:hidden p-2 rounded-md transition-colors"
+          style={{ color: "#CBD5E8" }}
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-slate-800 border-b border-slate-700 shadow-xl max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden absolute top-full left-0 w-full shadow-xl max-h-[80vh] overflow-y-auto" style={{
+          background: "rgba(10, 18, 40, 0.98)",
+          borderBottom: "1px solid rgba(43, 127, 232, 0.15)",
+        }}>
           <div className="flex flex-col px-4 py-4 gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-base text-white hover:text-blue-400 hover:bg-slate-700 font-medium w-full py-3 px-3 rounded-md transition-colors"
+                className="w-full py-3 px-3 rounded-md transition-colors"
+                style={{ color: "#CBD5E8", fontSize: "15px", fontWeight: 500 }}
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
             <div className="w-full">
-              <button 
-                onClick={() => setServicesOpen(!servicesOpen)} 
-                className="text-base text-white hover:bg-slate-700 font-medium w-full py-3 px-3 rounded-md flex items-center justify-between transition-colors"
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="w-full py-3 px-3 rounded-md flex items-center justify-between transition-colors"
+                style={{ color: "#CBD5E8", fontSize: "15px", fontWeight: 500 }}
               >
-                Services <ChevronDown size={18} className={cn("transition-transform", servicesOpen && "rotate-180")} />
+                Services <ChevronDown size={16} className={cn("transition-transform", servicesOpen && "rotate-180")} />
               </button>
               {servicesOpen && (
                 <div className="pl-3 mt-1 space-y-1">
                   {servicesDropdown.map((item) => (
-                    <Link 
-                      key={item.name} 
-                      href={item.href} 
-                      className="block text-sm text-slate-300 hover:text-blue-400 hover:bg-slate-700 py-2 px-3 rounded-md transition-colors" 
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block py-2 px-3 rounded-md transition-colors"
+                      style={{ color: "#7B9FCC", fontSize: "13px" }}
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}
@@ -109,9 +206,16 @@ export function Navbar() {
                 </div>
               )}
             </div>
-            <Link 
-              href="/contact" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-base font-medium transition-colors w-full text-center mt-3" 
+            <Link
+              href="/contact"
+              className="w-full text-center mt-3 py-3 px-6 rounded-md"
+              style={{
+                border: "1.5px solid #2B7FE8",
+                color: "#2B7FE8",
+                fontSize: "13px",
+                fontWeight: 600,
+                letterSpacing: "1px",
+              }}
               onClick={() => setIsOpen(false)}
             >
               Contact Us
