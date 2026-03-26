@@ -28,7 +28,7 @@ export function HeroAnimation() {
     if (!isPaused) {
       const interval = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
-      }, 3000);
+      }, 4000);
       return () => clearInterval(interval);
     }
   }, [isPaused, carouselImages.length]);
@@ -96,14 +96,13 @@ export function HeroAnimation() {
         ctx.stroke();
       }
 
-      // Particles with glow
+      // Particles
       particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
         if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
-        // Glow effect
         const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 8);
         gradient.addColorStop(0, "rgba(30, 144, 255, 0.8)");
         gradient.addColorStop(1, "rgba(30, 144, 255, 0)");
@@ -112,7 +111,6 @@ export function HeroAnimation() {
         ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = "#1e90ff";
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
         ctx.fill();
@@ -160,7 +158,7 @@ export function HeroAnimation() {
         return false;
       });
 
-      // Radar sweep with glow trail
+      // Radar sweep
       if (timestamp - lastRadarTime > 5000) {
         radarAngle = 0;
         lastRadarTime = timestamp;
@@ -170,7 +168,6 @@ export function HeroAnimation() {
       const radarY = canvas.height * 0.4;
       const radarRadius = 180;
       
-      // Glow trail
       const gradient = ctx.createLinearGradient(
         radarX,
         radarY,
@@ -190,14 +187,13 @@ export function HeroAnimation() {
       );
       ctx.stroke();
 
-      // Radar circle
       ctx.strokeStyle = "rgba(0, 255, 0, 0.15)";
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.arc(radarX, radarY, radarRadius, 0, Math.PI * 2);
       ctx.stroke();
 
-      // Cursors with pulse effect
+      // Cursors
       if (timestamp - lastCursorTime > 2000) {
         cursors.push({
           x: Math.random() * canvas.width,
@@ -240,76 +236,82 @@ export function HeroAnimation() {
   }, [isVisible]);
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden pt-20">
+    <div className="relative w-full overflow-hidden" style={{ minHeight: "600px" }}>
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       
-      <div className="relative z-10 min-h-screen flex items-center py-12">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
-            {/* Left: Text Content - Takes 3 columns */}
-            <div className="lg:col-span-3 text-left space-y-6 pl-16 lg:pl-20">
-              <h1 className="text-[42px] sm:text-5xl md:text-6xl lg:text-[42px] font-bold text-white mb-4 animate-fade-in drop-shadow-2xl leading-tight">
-                Empowering Investigations. Securing the Digital Frontier.
-              </h1>
-              <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 animate-fade-in-delay-2 leading-relaxed max-w-2xl">
-                Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
-              </p>
-            </div>
+      <div className="relative z-10 pt-20 pb-12">
+        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 w-full flex flex-col items-center text-center">
+          
+          {/* Header Text */}
+          <div className="max-w-4xl space-y-6 mb-10">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-2xl">
+              Empowering Investigations.<br />Securing the Digital Frontier.
+            </h1>
+            <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
+              Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
+            </p>
+          </div>
 
-            {/* Right: Carousel - Takes 2 columns */}
-            <div 
-              className="lg:col-span-2 relative pt-8 lg:pt-16"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
-              <div className="relative w-full h-[450px] sm:h-[550px] rounded-2xl overflow-hidden border-2 border-blue-500/50 shadow-2xl shadow-blue-500/40 backdrop-blur-sm">
-                {carouselImages.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                      idx === currentSlide ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
-                    <Image src={item.src} alt={item.caption} fill className="object-cover" priority={idx === 0} />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full shadow-lg">
-                      <p className="text-white text-xs font-normal">{item.caption}</p>
-                    </div>
+          {/* Wide Banner Carousel (1200x350 style) */}
+          <div 
+            className="relative w-full max-w-[1200px] h-[300px] sm:h-[350px] md:h-[400px] rounded-3xl overflow-hidden border-2 border-blue-500/40 shadow-[0_0_50px_rgba(30,144,255,0.3)] group"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {carouselImages.map((item, idx) => (
+              <div
+                key={idx}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                  idx === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
+                }`}
+              >
+                <Image 
+                  src={item.src} 
+                  alt={item.caption} 
+                  fill 
+                  className="object-cover" 
+                  priority={idx === 0} 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 flex justify-center">
+                  <div className="bg-black/40 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-lg">
+                    <p className="text-white text-sm font-medium tracking-wide">{item.caption}</p>
                   </div>
-                ))}
+                </div>
               </div>
-              
-              {/* Navigation Arrows */}
-              <button
-                onClick={() => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-blue-600 text-white p-3 rounded-full transition-all hover:scale-110 backdrop-blur-sm"
-                aria-label="Previous slide"
-              >
-                <ChevronLeft size={28} />
-              </button>
-              <button
-                onClick={() => setCurrentSlide((prev) => (prev + 1) % carouselImages.length)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-blue-600 text-white p-3 rounded-full transition-all hover:scale-110 backdrop-blur-sm"
-                aria-label="Next slide"
-              >
-                <ChevronRight size={28} />
-              </button>
-              
-              {/* Dot Indicators */}
-              <div className="flex justify-center gap-2 mt-6">
-                {carouselImages.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentSlide(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      idx === currentSlide ? "bg-blue-500 w-10" : "bg-white/40 w-2 hover:bg-white/60"
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
+            ))}
+            
+            {/* Arrows */}
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)}
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:scale-110 backdrop-blur-sm z-20"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft size={28} />
+            </button>
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev + 1) % carouselImages.length)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:scale-110 backdrop-blur-sm z-20"
+              aria-label="Next slide"
+            >
+              <ChevronRight size={28} />
+            </button>
+            
+            {/* Dots */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              {carouselImages.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    idx === currentSlide ? "bg-blue-500 w-10" : "bg-white/40 w-2 hover:bg-white/60"
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
             </div>
           </div>
+
         </div>
       </div>
     </div>

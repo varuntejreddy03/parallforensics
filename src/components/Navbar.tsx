@@ -37,17 +37,26 @@ export function Navbar() {
     }}>
       <div className="w-full max-w-[1200px] mx-auto flex justify-between items-center px-6 lg:px-12">
 
-        {/* Logo */}
+        {/* Logo with correct colors (Colored Icon + White Text) */}
         <Link href="/" aria-label="Home" className="flex items-center gap-2 group shrink-0">
-          <div className="relative shrink-0" style={{ height: "48px", width: "auto", minWidth: "160px" }}>
+          <div className="relative shrink-0" style={{ height: "48px", width: "180px" }}>
+            {/* Base Logo: White Text version */}
             <Image
               src="/parall-logo-white-text.png"
               alt="Parall Forensics Logo"
               fill
               className="object-contain"
-              style={{ background: "transparent" }}
               priority
             />
+            {/* Overlay: Colored Icon version clipped to only show the "P" icon part */}
+            <div className="absolute inset-0" style={{ clipPath: "inset(0 80% 0 0)" }}>
+              <Image
+                src="/parall-logo-transparent.png"
+                alt=""
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
         </Link>
 

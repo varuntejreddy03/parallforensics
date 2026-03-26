@@ -54,12 +54,11 @@ export function ClientLogosMarquee() {
               style={{
                 height: "50px",
                 width: "120px",
-                filter: "grayscale(100%) brightness(1.5)",
-                transition: "filter 0.3s ease",
+                transition: "transform 0.3s ease",
                 cursor: "pointer",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.filter = "none")}
-              onMouseLeave={(e) => (e.currentTarget.style.filter = "grayscale(100%) brightness(1.5)")}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
               <Image
                 src={logo.src}
