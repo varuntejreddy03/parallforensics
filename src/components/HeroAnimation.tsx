@@ -236,18 +236,17 @@ export function HeroAnimation() {
   }, [isVisible]);
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ minHeight: "600px" }}>
+    <div className="relative w-full overflow-hidden" style={{ minHeight: "580px" }}>
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       
-      <div className="relative z-10 pt-20 pb-12">
-        <div className="max-w-[1240px] mx-auto px-4 sm:px-6 w-full flex flex-col items-center text-center">
+      <div className="relative z-10 pt-24 pb-14">
+        <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center px-5 text-center sm:px-6 lg:px-8">
           
-          {/* Header Text */}
-          <div className="max-w-4xl space-y-6 mb-10">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-2xl">
+          <div className="mb-10 max-w-3xl space-y-5">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] drop-shadow-2xl">
               Empowering Investigations.<br />Securing the Digital Frontier.
             </h1>
-            <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-base text-slate-300 sm:text-lg">
               Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
             </p>
           </div>

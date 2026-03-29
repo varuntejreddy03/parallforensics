@@ -97,8 +97,8 @@ export default function Home() {
 
       <ClientLogosMarquee />
 
-      <section className="py-16 sm:py-20 px-4 sm:px-6 relative bg-white border-t border-slate-100">
-        <div className="container mx-auto text-center">
+      <section className="relative border-t border-slate-100 bg-white px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
+        <div className="mx-auto max-w-[1240px] text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-8">
             Ready to Transform Your Investigation Capabilities?
           </h2>

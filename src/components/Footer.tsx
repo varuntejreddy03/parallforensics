@@ -1,21 +1,17 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Mail, MapPin } from "lucide-react";
+import { BrandLogo } from "@/components/BrandLogo";
 
 export function Footer() {
   return (
     <footer className="bg-slate-800 border-t border-slate-700 pt-20 pb-10 text-slate-300 overflow-hidden relative">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none opacity-50" />
-      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-16">
+      <div className="mx-auto relative z-10 w-full max-w-[1240px] px-5 sm:px-6 lg:px-8">
+        <div className="mb-16 grid grid-cols-1 gap-8 sm:gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-6 lg:col-span-1">
-            <Link href="/" className="inline-block group" aria-label="Home">
-              <div className="flex items-center shrink-0 relative w-[200px] h-[45px] mb-4">
-                <Image src="/parall-logo-white-text.png" alt="Parall Forensics Logo" fill className="object-contain transition-transform group-hover:scale-105" />
-              </div>
-            </Link>
+            <BrandLogo size="footer" className="mb-4" imageClassName="transition-transform group-hover:scale-[1.02]" />
             <p className="text-sm">
-              Empowering Nation with Cutting Edge Technology Solutions
+              Empowering investigations with cutting-edge digital forensic and cyber capability solutions.
             </p>
           </div>
 
@@ -23,9 +19,11 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-6">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               <li><Link href="/" className="hover:text-accent transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-accent transition-colors">About Us</Link></li>
+              <li><Link href="/about" className="hover:text-accent transition-colors">About Company</Link></li>
+              <li><Link href="/about#projects" className="hover:text-accent transition-colors">Projects</Link></li>
               <li><Link href="/products" className="hover:text-accent transition-colors">Products</Link></li>
               <li><Link href="/partners" className="hover:text-accent transition-colors">Partners</Link></li>
+              <li><Link href="/news-events" className="hover:text-accent transition-colors">News & Events</Link></li>
               <li><Link href="/contact" className="hover:text-accent transition-colors">Contact Us</Link></li>
             </ul>
           </div>
