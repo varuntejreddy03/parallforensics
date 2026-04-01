@@ -251,7 +251,7 @@ export function HeroAnimation() {
               Empowering Investigations.<br />Securing the Digital Frontier.
             </h1>
             <p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-base">
-              Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
+              Advanced digital Forensic solutions for Law Enforcement, Government and Corporate agencies
             </p>
           </div>
 
