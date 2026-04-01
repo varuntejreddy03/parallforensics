@@ -6,7 +6,7 @@ const logos = [
   { src: "/Client Logos/Gemini_Generated_Image_1dssg61dssg61dss-removebg-preview.png", alt: "Client Logo 1" },
   { src: "/Client Logos/Gemini_Generated_Image_gfbskbgfbskbgfbs-removebg-preview.png", alt: "Client Logo 2" },
   { src: "/Client Logos/Gemini_Generated_Image_yqmtuxyqmtuxyqmt-removebg-preview.png", alt: "Client Logo 3" },
-  { src: "/Client Logos/Indian-Army-removebg-preview.png", alt: "Indian Army" },
+  { src: "/Client Logos/Indian-Army.png", alt: "Indian Army" },
   { src: "/Client Logos/MAHACYBER-LOGO-Picsart-AiImageEnhancer-removebg-preview.png", alt: "Maharashtra Cyber" },
   { src: "/Client Logos/Telangana-Police-Logo-removebg-preview.png", alt: "Telangana Police" },
 ];
@@ -42,9 +42,10 @@ export function ClientLogosMarquee() {
         <div
           className="marquee-track flex items-center"
           style={{
-            animation: "marquee 30s linear infinite",
-            gap: "60px",
+            animation: "marquee 35s linear infinite",
+            gap: "100px",
             whiteSpace: "nowrap",
+            padding: "0 50px",
           }}
         >
           {doubled.map((logo, idx) => (
@@ -52,12 +53,12 @@ export function ClientLogosMarquee() {
               key={idx}
               className="flex-shrink-0 relative"
               style={{
-                height: "50px",
-                width: "120px",
+                height: "110px",
+                width: "220px",
                 transition: "transform 0.3s ease",
                 cursor: "pointer",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
               onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
               <Image
