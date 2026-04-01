@@ -19,19 +19,21 @@ export function HeroAnimation() {
 
   const carouselImages = [
     { src: "/Banner Pics/image_7155b228-f498-4829-957e-6ca3ada6f263.png", caption: "AI Driven Investigation & Security" },
-    { src: "/Banner Pics/Mahacyber Pics/WhatsApp Image 2026-03-13 at 1.53.51 PM (1).jpeg", caption: "State-of-the-Art Operations Centre" },
-    { src: "/Banner Pics/Mahacyber Pics/MC3.JPG", caption: "Centre of Excellence Training" },
-    { src: "/Banner Pics/Mahacyber Pics/result_0.jpeg", caption: "Security Operations Centre" },
+    { src: "/Banner Pics/DEA-Award.JPG", caption: "Recognized Excellence" },
+    { src: "/banner1.png", caption: "State-of-the-Art Operations Centre" },
+    { src: "/banner2.png", caption: "Centre of Excellence Training" },
+    { src: "/ChatGPT Image Mar 3, 2026, 04_35_27 PM.png", caption: "Field Investigation Support" },
   ];
 
   useEffect(() => {
-    if (!isPaused) {
-      const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
-      }, 4000);
-      return () => clearInterval(interval);
-    }
-  }, [isPaused, carouselImages.length]);
+    if (isPaused) return;
+
+    const timer = window.setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
+    }, 4500);
+
+    return () => window.clearTimeout(timer);
+  }, [isPaused, currentSlide, carouselImages.length]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -236,14 +238,14 @@ export function HeroAnimation() {
   }, [isVisible]);
 
   return (
-    <div className="relative w-full overflow-hidden" style={{ minHeight: "580px" }}>
+    <div className="relative w-full overflow-hidden" style={{ minHeight: "520px" }}>
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
       
-      <div className="relative z-10 pt-24 pb-14">
+      <div className="relative z-10 pt-20 pb-10">
         <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center px-5 text-center sm:px-6 lg:px-8">
           
-          <div className="mb-10 max-w-3xl space-y-5">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] drop-shadow-2xl">
+          <div className="mb-8 max-w-3xl space-y-4">
+            <h1 className="text-3xl font-extrabold leading-[1.05] text-white drop-shadow-2xl sm:text-4xl md:text-5xl lg:text-6xl">
               Empowering Investigations.<br />Securing the Digital Frontier.
             </h1>
             <p className="mx-auto max-w-2xl text-base text-slate-300 sm:text-lg">
@@ -253,15 +255,15 @@ export function HeroAnimation() {
 
           {/* Wide Banner Carousel (1200x350 style) */}
           <div 
-            className="relative w-full max-w-[1200px] h-[300px] sm:h-[350px] md:h-[400px] rounded-3xl overflow-hidden border-2 border-blue-500/40 shadow-[0_0_50px_rgba(30,144,255,0.3)] group"
+            className="relative w-full max-w-[1120px] h-[250px] sm:h-[290px] md:h-[330px] rounded-3xl overflow-hidden border border-blue-500/40 shadow-[0_0_40px_rgba(30,144,255,0.24)] group"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
             {carouselImages.map((item, idx) => (
               <div
                 key={idx}
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  idx === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
+                className={`absolute inset-0 transition-all duration-[1500ms] ease-out will-change-transform ${
+                  idx === currentSlide ? "opacity-100 scale-100 translate-x-0" : "opacity-0 scale-[1.03] translate-x-2"
                 }`}
               >
                 <Image 
@@ -271,9 +273,9 @@ export function HeroAnimation() {
                   className="object-cover" 
                   priority={idx === 0} 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6 flex justify-center">
-                  <div className="bg-black/40 backdrop-blur-md px-6 py-2 rounded-full border border-white/10 shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 flex justify-center">
+                  <div className="rounded-full border border-white/10 bg-black/40 px-5 py-2 shadow-lg backdrop-blur-md">
                     <p className="text-white text-sm font-medium tracking-wide">{item.caption}</p>
                   </div>
                 </div>
@@ -283,14 +285,14 @@ export function HeroAnimation() {
             {/* Arrows */}
             <button
               onClick={() => setCurrentSlide((prev) => (prev - 1 + carouselImages.length) % carouselImages.length)}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:scale-110 backdrop-blur-sm z-20"
+              className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 backdrop-blur-sm transition-all hover:scale-110 hover:bg-blue-600 group-hover:opacity-100"
               aria-label="Previous slide"
             >
               <ChevronLeft size={28} />
             </button>
             <button
               onClick={() => setCurrentSlide((prev) => (prev + 1) % carouselImages.length)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-blue-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:scale-110 backdrop-blur-sm z-20"
+              className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white opacity-0 backdrop-blur-sm transition-all hover:scale-110 hover:bg-blue-600 group-hover:opacity-100"
               aria-label="Next slide"
             >
               <ChevronRight size={28} />

@@ -14,26 +14,31 @@ export function MaharashtraCyberSection() {
       src: "/Banner Pics/Mahacyber Pics/MAHACYBER-LOGO-Picsart-AiImageEnhancer.png",
       alt: "Maharashtra Cyber Logo",
       objectFit: "contain" as const,
+      objectPosition: "center center",
     },
     {
-      src: "/Banner Pics/Mahacyber Pics/Devendra-Fadnavis-Mahacyber.JPG",
+      src: "/Banner Pics/WhatsApp Image 2026-04-01 at 11.03.32 PM.jpeg",
       alt: "Devendra Fadnavis Maharashtra Cyber",
-      objectFit: "cover" as const,
+      objectFit: "contain" as const,
+      objectPosition: "center top",
     },
     {
       src: "/Banner Pics/Mahacyber Pics/result_0.jpeg",
       alt: "Security Operations Centre",
-      objectFit: "cover" as const,
+      objectFit: "contain" as const,
+      objectPosition: "center center",
     },
     {
       src: "/Banner Pics/Mahacyber Pics/WhatsApp Image 2026-03-13 at 1.53.51 PM (1).jpeg",
       alt: "Officers at Cyber Operations",
-      objectFit: "cover" as const,
+      objectFit: "contain" as const,
+      objectPosition: "center center",
     },
     {
       src: "/Banner Pics/Mahacyber Pics/MC3.JPG",
       alt: "Centre of Excellence Training",
-      objectFit: "cover" as const,
+      objectFit: "contain" as const,
+      objectPosition: "center center",
     },
   ];
 
@@ -69,11 +74,8 @@ export function MaharashtraCyberSection() {
                   src={image.src}
                   alt={image.alt}
                   fill
-                  className={
-                    image.objectFit === "contain"
-                      ? "object-contain bg-slate-900/50 p-12"
-                      : "object-cover"
-                  }
+                  className="object-contain bg-slate-900/50 p-6 sm:p-8"
+                  style={{ objectPosition: image.objectPosition }}
                 />
               </div>
             ))}
@@ -129,7 +131,7 @@ export function MaharashtraCyberSection() {
             </div>
 
             <Link
-              href="/about#projects"
+              href="/projects"
               className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
             >
               View Our Projects

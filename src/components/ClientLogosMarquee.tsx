@@ -3,12 +3,14 @@
 import Image from "next/image";
 
 const logos = [
-  { src: "/Banner Pics/DEA-Award.JPG", alt: "DEA Award" },
-  { src: "/Banner Pics/Mahacyber Pics/MAHACYBER-LOGO-Picsart-AiImageEnhancer.png", alt: "Maharashtra Cyber" },
-  { src: "/Banner Pics/DEA-AWARD-2026.JPG", alt: "DEA Award 2026" },
-  { src: "/Banner Pics/DEA-Award.JPG", alt: "DEA Award" },
-  { src: "/Banner Pics/Mahacyber Pics/MAHACYBER-LOGO-Picsart-AiImageEnhancer.png", alt: "Maharashtra Cyber" },
-  { src: "/Banner Pics/DEA-AWARD-2026.JPG", alt: "DEA Award 2026" },
+  { src: "/Client Logos/delhi-police.JPG", alt: "Delhi Police" },
+  { src: "/Client Logos/Gemini_Generated_Image_gfbskbgfbskbgfbs.png", alt: "Client Logo" },
+  { src: "/Client Logos/Indian-Army.JPG", alt: "Indian Army" },
+  { src: "/Client Logos/Indian-Navy-Logo.png", alt: "Indian Navy" },
+  { src: "/Client Logos/LTTS-LOGO.png", alt: "LTTS" },
+  { src: "/Client Logos/MAHACYBER-LOGO-Picsart-AiImageEnhancer.png", alt: "Maharashtra Cyber" },
+  { src: "/Client Logos/NIC_Preview-1.png", alt: "NIC" },
+  { src: "/Client Logos/Telangana-Police-Logo.png", alt: "Telangana Police" },
 ];
 
 export function ClientLogosMarquee() {

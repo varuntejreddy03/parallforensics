@@ -2,17 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowRight,
-  Building2,
   CheckCircle2,
   ChevronRight,
-  Cpu,
   Globe,
   GraduationCap,
+  Cpu,
   LayoutGrid,
   MapPin,
-  ShieldCheck,
-  Users,
 } from "lucide-react";
 import { CTAButton } from "@/components/CTAButton";
 import { SectionWrapper } from "@/components/SectionWrapper";
@@ -22,27 +18,6 @@ export const metadata: Metadata = {
   description:
     "Learn about Parall Forensics, a specialized digital forensics and cyber capability company headquartered in Hyderabad, India, and explore our major investigative capability projects.",
 };
-
-const projectHighlights = [
-  {
-    icon: <Building2 size={22} />,
-    title: "State Cyber Infrastructure",
-    description:
-      "Large-scale lab, SOC, and investigation environment setup for public-sector institutions.",
-  },
-  {
-    icon: <Users size={22} />,
-    title: "Capability Building",
-    description:
-      "Hands-on training programs that help investigators operationalize tools and workflows quickly.",
-  },
-  {
-    icon: <ShieldCheck size={22} />,
-    title: "Operational Readiness",
-    description:
-      "Integration and enablement support that turns technical investments into frontline outcomes.",
-  },
-];
 
 export default function About() {
   return (
@@ -110,70 +85,6 @@ export default function About() {
                   Delivering mission-critical solutions since inception.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </SectionWrapper>
-
-      <SectionWrapper id="projects" className="bg-slate-900 py-24">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-blue-300">
-              Projects
-            </div>
-            <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-              Projects That Build Stronger Digital Investigation Capability
-            </h2>
-            <p className="max-w-2xl text-lg leading-relaxed text-slate-300">
-              Our project work combines infrastructure, training, and operational integration so agencies can move from procurement to real investigative readiness.
-            </p>
-
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              {projectHighlights.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 shadow-[0_20px_60px_rgba(15,23,42,0.18)]"
-                >
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500/15 text-blue-300">
-                    {item.icon}
-                  </div>
-                  <h3 className="mb-2 text-xl font-semibold text-white">{item.title}</h3>
-                  <p className="text-sm leading-6 text-slate-300">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl">
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src="/Banner Pics/Mahacyber Pics/result_0.jpeg"
-                alt="Maha Cyber project operations centre"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
-              <div className="absolute left-6 top-6 rounded-full border border-white/15 bg-slate-950/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-blue-300 backdrop-blur-sm">
-                Featured Delivery
-              </div>
-            </div>
-            <div className="space-y-5 p-8">
-              <h3 className="text-3xl font-black uppercase tracking-tight text-white">
-                Maha Cyber Project
-              </h3>
-              <p className="text-base leading-7 text-slate-300">
-                Parall Forensics partnered with Maharashtra Cyber to help establish advanced cyber security and digital forensics capability through infrastructure deployment, specialized tooling, and investigator training.
-              </p>
-              <p className="text-sm leading-6 text-slate-400">
-                The engagement strengthened incident response, evidence handling, and long-term operational readiness for a high-impact public-sector cyber program.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-500"
-              >
-                Discuss a Similar Project
-                <ArrowRight size={16} />
-              </Link>
             </div>
           </div>
         </div>

@@ -9,19 +9,15 @@ import { BrandLogo } from "@/components/BrandLogo";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Company", href: "/about" },
-  { name: "Projects", href: "/about#projects" },
+  { name: "Projects", href: "/projects" },
   { name: "Products", href: "/products" },
   { name: "Partners", href: "/partners" },
+  { name: "Events Calendar", href: "/news-events" },
 ];
 
 const servicesDropdown = [
   { name: "Digital Forensic Solutions", href: "/services/digital-forensic-solutions" },
   { name: "Training and Certification", href: "/services/training-certification" },
-];
-
-const newsDropdown = [
-  { name: "Latest News", href: "/news-events#latest-news" },
-  { name: "Events Calendar", href: "/news-events#events-calendar" },
 ];
 
 function DesktopDropdown({
@@ -99,14 +95,11 @@ function DesktopDropdown({
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [newsOpen, setNewsOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [mobileNewsOpen, setMobileNewsOpen] = useState(false);
 
   const closeMobileMenu = () => {
     setIsOpen(false);
     setMobileServicesOpen(false);
-    setMobileNewsOpen(false);
   };
 
   return (
@@ -149,13 +142,6 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-
-          <DesktopDropdown
-            label="News & Events"
-            items={newsDropdown}
-            isOpen={newsOpen}
-            setIsOpen={setNewsOpen}
-          />
 
           <DesktopDropdown
             label="Services"
@@ -228,35 +214,6 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-
-            <div className="w-full">
-              <button
-                onClick={() => setMobileNewsOpen(!mobileNewsOpen)}
-                className="flex w-full items-center justify-between rounded-md px-3 py-3 transition-colors"
-                style={{ color: "#CBD5E8", fontSize: "15px", fontWeight: 500 }}
-              >
-                News & Events{" "}
-                <ChevronDown
-                  size={16}
-                  className={cn("transition-transform", mobileNewsOpen && "rotate-180")}
-                />
-              </button>
-              {mobileNewsOpen && (
-                <div className="mt-1 space-y-1 pl-3">
-                  {newsDropdown.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="block rounded-md px-3 py-2 transition-colors"
-                      style={{ color: "#7B9FCC", fontSize: "13px" }}
-                      onClick={closeMobileMenu}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
 
             <div className="w-full">
               <button
