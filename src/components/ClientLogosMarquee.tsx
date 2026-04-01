@@ -6,7 +6,6 @@ const logos = [
   { src: "/Client Logos/Gemini_Generated_Image_1dssg61dssg61dss-removebg-preview.png", alt: "Client Logo 1" },
   { src: "/Client Logos/Gemini_Generated_Image_gfbskbgfbskbgfbs-removebg-preview.png", alt: "Client Logo 2" },
   { src: "/Client Logos/Gemini_Generated_Image_yqmtuxyqmtuxyqmt-removebg-preview.png", alt: "Client Logo 3" },
-  { src: "/Client Logos/Indian-Army.png", alt: "Indian Army" },
   { src: "/Client Logos/MAHACYBER-LOGO-Picsart-AiImageEnhancer-removebg-preview.png", alt: "Maharashtra Cyber" },
   { src: "/Client Logos/Telangana-Police-Logo-removebg-preview.png", alt: "Telangana Police" },
 ];
