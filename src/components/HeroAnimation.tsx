@@ -19,6 +19,7 @@ export function HeroAnimation() {
 
   const carouselImages = [
     { src: "/Banner Pics/image_7155b228-f498-4829-957e-6ca3ada6f263.png", caption: "AI Driven Investigation & Security" },
+    { src: "/Banner Pics/Gemini_Generated_Image_3f7p93f7p93f7p93.png", caption: "Next-Gen Digital Forensics" },
     { src: "/banner1.png", caption: "State-of-the-Art Operations Centre" },
     { src: "/banner2.png", caption: "Centre of Excellence Training" },
     { src: "/ChatGPT Image Mar 3, 2026, 04_27_31 PM.png", caption: "Advanced Cyber Intelligence" },
@@ -256,7 +257,7 @@ export function HeroAnimation() {
 
           {/* Wide Banner Carousel (1200x350 style) */}
           <div 
-            className="relative w-full max-w-[1240px] h-[300px] sm:h-[400px] md:h-[480px] lg:h-[550px] rounded-3xl overflow-hidden border border-blue-500/40 shadow-[0_0_40px_rgba(30,144,255,0.24)] group"
+            className="relative w-full max-w-[1240px] h-[280px] sm:h-[360px] md:h-[420px] lg:h-[480px] rounded-3xl overflow-hidden border border-blue-500/40 shadow-[0_0_40px_rgba(30,144,255,0.24)] group"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
