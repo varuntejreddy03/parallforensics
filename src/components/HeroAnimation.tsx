@@ -19,10 +19,11 @@ export function HeroAnimation() {
 
   const carouselImages = [
     { src: "/Banner Pics/image_7155b228-f498-4829-957e-6ca3ada6f263.png", caption: "AI Driven Investigation & Security" },
-    { src: "/Banner Pics/DEA-Award.JPG", caption: "Recognized Excellence" },
     { src: "/banner1.png", caption: "State-of-the-Art Operations Centre" },
     { src: "/banner2.png", caption: "Centre of Excellence Training" },
-    { src: "/ChatGPT Image Mar 3, 2026, 04_35_27 PM.png", caption: "Field Investigation Support" },
+    { src: "/ChatGPT Image Mar 3, 2026, 04_27_31 PM.png", caption: "Advanced Cyber Intelligence" },
+    { src: "/ChatGPT Image Mar 3, 2026, 04_27_35 PM.png", caption: "Digital Threat Analysis" },
+    { src: "/ChatGPT Image Mar 3, 2026, 04_34_44 PM.png", caption: "Cutting-Edge Forensics" },
   ];
 
   useEffect(() => {
@@ -30,7 +31,7 @@ export function HeroAnimation() {
 
     const timer = window.setTimeout(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
-    }, 4500);
+    }, 3000);
 
     return () => window.clearTimeout(timer);
   }, [isPaused, currentSlide, carouselImages.length]);
@@ -244,18 +245,18 @@ export function HeroAnimation() {
       <div className="relative z-10 pt-20 pb-10">
         <div className="mx-auto flex w-full max-w-[1240px] flex-col items-center px-5 text-center sm:px-6 lg:px-8">
           
-          <div className="mb-8 max-w-3xl space-y-4">
-            <h1 className="text-3xl font-extrabold leading-[1.05] text-white drop-shadow-2xl sm:text-4xl md:text-5xl lg:text-6xl">
+          <div className="mb-6 max-w-3xl space-y-3">
+            <h1 className="text-2xl font-bold leading-[1.1] text-white drop-shadow-2xl sm:text-3xl md:text-4xl lg:text-5xl">
               Empowering Investigations.<br />Securing the Digital Frontier.
             </h1>
-            <p className="mx-auto max-w-2xl text-base text-slate-300 sm:text-lg">
+            <p className="mx-auto max-w-2xl text-sm text-slate-300 sm:text-base">
               Advanced Digital Forensics Solutions for Law Enforcement & Government Agencies
             </p>
           </div>
 
           {/* Wide Banner Carousel (1200x350 style) */}
           <div 
-            className="relative w-full max-w-[1120px] h-[250px] sm:h-[290px] md:h-[330px] rounded-3xl overflow-hidden border border-blue-500/40 shadow-[0_0_40px_rgba(30,144,255,0.24)] group"
+            className="relative w-full max-w-[1240px] h-[300px] sm:h-[400px] md:h-[480px] lg:h-[550px] rounded-3xl overflow-hidden border border-blue-500/40 shadow-[0_0_40px_rgba(30,144,255,0.24)] group"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >

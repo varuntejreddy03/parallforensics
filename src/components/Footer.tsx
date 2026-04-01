@@ -23,7 +23,7 @@ export function Footer() {
               <li><Link href="/projects" className="hover:text-accent transition-colors">Projects</Link></li>
               <li><Link href="/products" className="hover:text-accent transition-colors">Products</Link></li>
               <li><Link href="/partners" className="hover:text-accent transition-colors">Partners</Link></li>
-              <li><Link href="/news-events" className="hover:text-accent transition-colors">News & Events</Link></li>
+              <li><a href="https://www.facebook.com/Parall.Forensics/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">News & Events</a></li>
               <li><Link href="/contact" className="hover:text-accent transition-colors">Contact Us</Link></li>
             </ul>
           </div>

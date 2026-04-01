@@ -12,7 +12,7 @@ const navLinks = [
   { name: "Projects", href: "/projects" },
   { name: "Products", href: "/products" },
   { name: "Partners", href: "/partners" },
-  { name: "Events Calendar", href: "/news-events" },
+  { name: "News & Events", href: "https://www.facebook.com/Parall.Forensics/" },
 ];
 
 const servicesDropdown = [

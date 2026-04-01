@@ -59,24 +59,25 @@ export function MaharashtraCyberSection() {
       <div className="mx-auto max-w-[1240px]">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div
-            className="group relative h-[350px] overflow-hidden rounded-3xl border-2 border-blue-500/20 bg-slate-900/40 shadow-2xl backdrop-blur-sm sm:h-[450px]"
+            className="group relative h-[300px] overflow-hidden rounded-3xl border-2 border-blue-500/20 bg-slate-900/40 shadow-2xl backdrop-blur-sm sm:h-[400px]"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
             {carouselImages.map((image, idx) => (
               <div
                 key={idx}
-                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+                className={`absolute flex items-center justify-center inset-0 transition-all duration-1000 ease-in-out ${
                   idx === currentSlide ? "scale-100 opacity-100" : "scale-105 opacity-0"
                 }`}
               >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-contain bg-slate-900/50 p-6 sm:p-8"
-                  style={{ objectPosition: image.objectPosition }}
-                />
+                <div className="relative w-[90%] h-[90%] flex items-center justify-center">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             ))}
 
@@ -113,10 +114,10 @@ export function MaharashtraCyberSection() {
 
           <div className="space-y-8">
             <div>
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-blue-400">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-blue-400">
                 Featured Project
               </p>
-              <h2 className="text-4xl font-black uppercase tracking-tight leading-[0.95] text-white md:text-5xl lg:text-6xl">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight leading-[1.1] text-white">
                 MAHA CYBER PROJECT
               </h2>
             </div>
