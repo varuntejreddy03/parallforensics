@@ -3,14 +3,12 @@
 import Image from "next/image";
 
 const logos = [
-  { src: "/Client Logos/delhi-police.JPG", alt: "Delhi Police" },
-  { src: "/Client Logos/Gemini_Generated_Image_gfbskbgfbskbgfbs.png", alt: "Client Logo" },
-  { src: "/Client Logos/Indian-Army.JPG", alt: "Indian Army" },
-  { src: "/Client Logos/Indian-Navy-Logo.png", alt: "Indian Navy" },
-  { src: "/Client Logos/LTTS-LOGO.png", alt: "LTTS" },
-  { src: "/Client Logos/MAHACYBER-LOGO-Picsart-AiImageEnhancer.png", alt: "Maharashtra Cyber" },
-  { src: "/Client Logos/NIC_Preview-1.png", alt: "NIC" },
-  { src: "/Client Logos/Telangana-Police-Logo.png", alt: "Telangana Police" },
+  { src: "/Client Logos/Gemini_Generated_Image_1dssg61dssg61dss-removebg-preview.png", alt: "Client Logo 1" },
+  { src: "/Client Logos/Gemini_Generated_Image_gfbskbgfbskbgfbs-removebg-preview.png", alt: "Client Logo 2" },
+  { src: "/Client Logos/Gemini_Generated_Image_yqmtuxyqmtuxyqmt-removebg-preview.png", alt: "Client Logo 3" },
+  { src: "/Client Logos/Indian-Army-removebg-preview.png", alt: "Indian Army" },
+  { src: "/Client Logos/MAHACYBER-LOGO-Picsart-AiImageEnhancer-removebg-preview.png", alt: "Maharashtra Cyber" },
+  { src: "/Client Logos/Telangana-Police-Logo-removebg-preview.png", alt: "Telangana Police" },
 ];
 
 export function ClientLogosMarquee() {
